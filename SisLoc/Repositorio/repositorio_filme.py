@@ -40,8 +40,3 @@ class RepositorioFilme:
     def listar(self):
         return self.filmes
 
-    def deletar(self, codigo: int):
-        pass
-
-    def listar(self):
-        return self.filmes

@@ -1,4 +1,5 @@
 from SisLoc.Cadatrar.cliente import Cliente
+from SisLoc.Repositorio.repositorio_cliente import RepositoriCliente
 
 
 class CriarCliente:
@@ -12,3 +13,7 @@ class CriarCliente:
         cliente.set_endereco(endereco)
 
         cliente.imprimir()
+        cliente = RepositoriCliente()
+        print(cliente.buscar('254'))
+
+
