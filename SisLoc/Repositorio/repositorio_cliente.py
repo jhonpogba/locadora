@@ -3,29 +3,32 @@ from SisLoc.Cadatrar.cliente import Cliente
 
 class RepositoriCliente:
     def __init__(self):
-        self.clientes = [None] * 100
-        self.indice = 0
+        self.clientes = []
 
-    def cadatrar(self, cliente: Cliente):
-        self.clientes[self.indice] = cliente
-        self.indice += 1
+    def cadastrar(self, cliente: Cliente):
+        if self.buscar(cliente.get_CPF()) is None:
+            self.clientes.append(cliente)
+        else:
+            print('Cliente já existente! ')
 
     def buscar(self, cpf: str):
-        i = 0
-        achou = False
-        while achou is False and i < self.indice:
-            if self.clientes[i].get_CPF() == cpf:
-                achou = True
-            else:
-                i += 1
-        if achou is True:
-            return self.clientes[i]
-        else:
-            return None
+        for cliente in self.clientes:
+            if cliente.get_CPF() == cpf:
+                return cliente
+        return None
 
     def atualizar(self, cliente: Cliente):
-        for i in self.clientes:
-            if cliente == self.clientes[i]:
-                pass
-            else:
-                return None
+        cliente = self.buscar(cliente.get_CPF())
+        if cliente is not None:
+            cliente.set_nome(cliente.get_nome)
+            cliente.set_endereco(cliente.get_endereco)
+        else:
+            print('Filme não encontrado! ')
+
+    def deletar(self, cpf: str):
+        for cliente in self.clientes:
+            if cliente.getCpf() == cpf:
+                self.clientes.pop(self.clientes.index(cliente))
+
+    def listar(self):
+        return self.clientes
