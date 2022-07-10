@@ -8,8 +8,11 @@ class RepositoriOperacao:
         self.operacoes = []
 
     def cadastrar(self, operacao: Operacao):
-        self.operacoes.append(operacao)
-        operacao.set_ativo(True)
+        if operacao not in self.operacoes:
+            self.operacoes.append(operacao)
+            operacao.set_ativo(True)
+        else:
+            print('Operacao ja cadastrada!!')
 
     def buscarReservas(self, cpf: str):
         reservas = []
@@ -43,14 +46,34 @@ class RepositoriOperacao:
         return locacoes
 
     def numeroLocacoes(self, cpf: str):
-        pass
-
-    def numeroLocacoesAtivas(self, cpf: str):
-        pass
+        locacao = self.listarLocacoes(cpf)
+        return len(locacao)
 
     def numeroLocacoes(self, codigo: int):
-        pass
+        locacoes = []
+        for locacao in self.operacoes:
+            if locacao.get_codigo() == codigo and isinstance(locacao, Locacao):
+                locacoes.append(locacao)
+        return len(locacoes)
+
+    def numeroLocacoesAtivas(self, cpf: str):
+        locacoes = []
+        for locacao in self.operacoes:
+            if locacao.get_codigo() == cpf and locacao.get_ativo() is True and isinstance(locacao, Locacao):
+                locacoes.append(locacao)
+        return len(locacoes)
+
+    def numeroLocacoesAtivas(self, codigo: int):
+        locacoes = []
+        for locacao in self.operacoes:
+            if locacao.get_codigo() == codigo and locacao.get_ativo() is True and isinstance(locacao, Locacao):
+                locacoes.append(locacao)
+        return len(locacoes)
 
     def numeroReservas(self, codigo: int):
-        pass
+        reservas = []
+        for reserva in self.operacoes:
+            if reserva.get_codigo() == codigo and reserva.get_ativo() is True and isinstance(reserva, Reserva):
+                reservas.append(reserva)
+        return len(reservas)
 

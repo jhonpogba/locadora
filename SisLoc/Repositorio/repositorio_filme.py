@@ -24,7 +24,7 @@ class RepositorioFilme:
             filme.set_titulo(filme.get_titulo)
             filme.set_genero(filme.get_genero)
             filme.set_dataLancamento(filme.get_dataLancamento)
-            filme.set_diretor(filme.get_diretor)
+            filme.set_direto(filme.get_direto)
             filme.set_sinopse(filme.get_sinopse)
             filme.set_produtores(filme.get_produtores)
             filme.set_precoLocacao(filme.get_precoLocacao)

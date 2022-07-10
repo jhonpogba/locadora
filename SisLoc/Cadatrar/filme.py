@@ -1,18 +1,18 @@
 from sqlite3 import Date
-
+from datetime import date
 
 class Filme:
     def __init__(self,codigo: int, titulo: str):
         self.codigo = codigo
         self.titulo = titulo
-        self.genero = []
-        self.dataLancamento = Date
-        self.diretor = ''
-        self.atores = []
-        self.sinopse = ''
-        self.produtores = []
-        self.precoLocacao = float
-        self.numeroCopias = int
+        self.genero = list()
+        self.dataLancamento = date.today()
+        self.diretor = str()
+        self.atores = list()
+        self.sinopse = str()
+        self.produtores = list()
+        self.precoLocacao = float()
+        self.numeroCopias = int()
 
 
     def get_codigo(self):
@@ -30,13 +30,13 @@ class Filme:
     def get_genero(self):
         return self.genero
 
-    def set_genero(self, genero: []):
+    def set_genero(self, genero: list):
         self.genero = genero
 
     def get_dataLancamento(self):
         return self.dataLancamento
 
-    def set_dateLancamento(self, dataLancamento: Date):
+    def set_dateLancamento(self, dataLancamento: date):
         self.dataLancamento = dataLancamento
 
     def get_direto(self):
@@ -48,7 +48,7 @@ class Filme:
     def get_atores(self):
         return self.atores
 
-    def set_atores(self, atores: []):
+    def set_atores(self, atores: list):
         self.atores = atores
 
     def get_sinopse(self):
@@ -60,7 +60,7 @@ class Filme:
     def get_produtores(self):
         return self.produtores
 
-    def set_produtores(self, produtores: []):
+    def set_produtores(self, produtores: list):
         self.produtores = produtores
 
     def get_precoLocacao(self):

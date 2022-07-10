@@ -1,18 +1,16 @@
-from datetime import datetime
-from sqlite3 import Date
-
+from datetime import date
 
 class Operacao:
-    def __init__(self, cpf: str, codigo: str):
-        self.data = Date
+    def __init__(self, cpf: str, codigo: int):
+        self.data = date.today()
         self.cpf = cpf
         self.codigo = codigo
-        self.ativo = True
+        self.ativo = bool()
 
     def get_data(self):
         return self.data
 
-    def set_data(self, data: Date):
+    def set_data(self, data: date):
         self.data = data
 
     def get_cpf(self):
@@ -24,7 +22,7 @@ class Operacao:
     def get_codigo(self):
         return self.codigo
 
-    def set_codigo(self, codigo: str):
+    def set_codigo(self, codigo: int):
         self.codigo = codigo
 
     def get_ativo(self):

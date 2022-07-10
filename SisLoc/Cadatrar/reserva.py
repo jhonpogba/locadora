@@ -2,8 +2,8 @@ from SisLoc.Cadatrar.operacao import Operacao
 
 
 class Reserva(Operacao):
-    def __init__(self, cpf:str,codigo:int,prioridade: int):
-        super().__init__(cpf, codigo)
+    def __init__(self, prioridade: int):
+        super().__init__(self.cpf, self.codigo)
         self.prioridade = prioridade
 
     def get_prioridade(self):

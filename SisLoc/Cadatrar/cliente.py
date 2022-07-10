@@ -1,8 +1,8 @@
 class Cliente:
     def __init__(self, cpf: str):
         self.cpf = cpf
-        self.nome = ''
-        self.endereco = ''
+        self.nome = str()
+        self.endereco = str()
 
     def get_CPF(self):
         return self.cpf

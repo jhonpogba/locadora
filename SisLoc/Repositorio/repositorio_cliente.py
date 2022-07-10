@@ -1,7 +1,7 @@
 from SisLoc.Cadatrar.cliente import Cliente
 
 
-class RepositoriCliente:
+class RepositorioCliente:
     def __init__(self):
         self.clientes = []
 
@@ -27,7 +27,7 @@ class RepositoriCliente:
 
     def deletar(self, cpf: str):
         for cliente in self.clientes:
-            if cliente.getCpf() == cpf:
+            if cliente.get_CPF() == cpf:
                 self.clientes.pop(self.clientes.index(cliente))
 
     def listar(self):
